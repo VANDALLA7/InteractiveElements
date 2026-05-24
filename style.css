@@ -1,0 +1,95 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #c3c3c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transform:  scale(1.5);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal__wrapper{
+    padding: 30px;
+    background-color: #fff;
+    max-width: 600px;
+    width: 70%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.modal--open{
+    display:  flex;
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.btn--open {
+  padding: 12px 20px;
+  border: none;
+  background: #2f80ed;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.btn--open:hover,
+.btn--open:focus {
+  background: #1c66cc;
+}
+
+.modal--open .modal__wrapper {
+  transform: scale(1);
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    color: #7293c1;
+    text-decoration: underline dotted;
+    
+}
+.tooltip::after {
+    opacity: 0;
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-width: 200px;
+    padding: 8px 10px;
+    background-color: rgb(50, 53, 120);
+    color: #fff;
+    pointer-events: none;
+    white-space: normal;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.tooltip-animated::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(130%);
+}
+
+.tooltip-closing::after {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
